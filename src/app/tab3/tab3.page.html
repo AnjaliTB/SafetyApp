@@ -1,9 +1,37 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Configure
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content padding="true">
+  <ion-list>
+      <ion-button expand="block"    href="/login" routerDirection="forward" round outline>LOGIN</ion-button>
+      <br>
+      <ion-button expand="block"   href="/signup" routerDirection="forward" round outline>SIGN UP</ion-button>
+      <br>
+  </ion-list>
+</ion-content>-->
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item text-wrap>
+        <ion-label position="floating" class="des">Username</ion-label>
+        <ion-input type="text"  [(ngModel)]="username"  ng-value=" "></ion-input>
+      </ion-item>
+      <ion-item text-wrap>
+        <ion-label position="floating" class="des" ng-value=" ">Password</ion-label>
+        <ion-input type="password"  [(ngModel)]="password" ></ion-input>
+      </ion-item>
+      <br>
+      <ion-button class= "but" (click)="loging()">Login</ion-button>
+      <ion-button class= "signup" href="/signup" routerDirection="forward" round outline>Signup</ion-button>
+    </ion-list>
+  </ion-content>

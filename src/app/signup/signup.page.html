@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>
+      Signup
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item text-wrap>
+          <ion-label position="floating" class="des"> Name</ion-label>
+          <ion-input type="text"  [(ngModel)]="name" ></ion-input>
+      </ion-item>
+
+    <ion-item text-wrap>
+      <ion-label position="floating" class="des">Username</ion-label>
+      <ion-input type="text"  [(ngModel)]="username" ></ion-input>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label position="floating" class="des">Password</ion-label>
+      <ion-input type="password"  [(ngModel)]="password" ></ion-input>
+    </ion-item>
+    <br>
+    <ion-button class= "signup" (click)="signup()">Signup</ion-button>
+    <ion-button class= "login"  href="/tabs/tab3" routerDirection="forward" round outline>Login</ion-button>
+  </ion-list>
+</ion-content>
