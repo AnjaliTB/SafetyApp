@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -10,6 +10,45 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-button (click)="logout()">LOGOUT</ion-button>
+    <ion-label>Welcome User</ion-label>
 </ion-content>
+<ion-split-pane>
+  <ion-menu contentId="content">
+ 
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+ 
+    <ion-content>
+      <ion-list>
+          <ion-item tappable routerLink="/loginuser" routerDirection="root">
+            <ion-icon name="home" slot="start"></ion-icon>
+            Home
+          </ion-item>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+          <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)">
+            <ion-label>
+              {{ p.title }}
+            </ion-label>
+            <ion-icon name='{{p.icon}}' slot="start"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+ 
+        <ion-item tappable routerLink="/tabs/tab3" routerDirection="root">
+          <ion-icon name="log-out" slot="start"></ion-icon>
+          Logout
+        </ion-item>
+ 
+      </ion-list>
+ 
+    </ion-content>
+ 
+  </ion-menu>
+ 
+  <ion-router-outlet id="content" main></ion-router-outlet>
+ 
+</ion-split-pane>
+    
   

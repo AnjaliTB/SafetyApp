@@ -10,7 +10,21 @@ import { LoginuserPage } from './loginuser.page';
 const routes: Routes = [
   {
     path: '',
-    component: LoginuserPage
+    component: LoginuserPage,
+   children: [
+      /*{
+        path: '',
+        redirectTo:'/loginuser'
+      },*/
+      {
+        path: 'location',
+        loadChildren: '../location/location.module#LocationPageModule',
+      },
+      {
+        path: 'logout',
+        loadChildren: '../logout/logout.module#LogoutPageModule'
+      }
+    ]
   }
 ];
 
@@ -23,4 +37,7 @@ const routes: Routes = [
   ],
   declarations: [LoginuserPage]
 })
-export class LoginuserPageModule {}
+export class LoginuserPageModule {
+
+  
+}

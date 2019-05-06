@@ -10,7 +10,9 @@ const routes: Routes = [
     path: 'loginuser', 
     canActivate: [AuthGuardService],
     loadChildren: './loginuser/loginuser.module#LoginuserPageModule' },
-  { path: 'location', loadChildren: './location/location.module#LocationPageModule' }
+  { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
+  { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
+  { path: 'uploadimg', loadChildren: './uploadimg/uploadimg.module#UploadimgPageModule' }
 ];
 @NgModule({
   imports: [

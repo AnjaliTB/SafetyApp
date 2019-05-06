@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>uploadimg</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-loading *ngIf="busy"></app-loading>
+    <div class="center " *ngIf="!busy">
+      <div class="camera"></div>
+
+      <input type="file" *ngIf="!ImageURL" (change)="!fileChanged($event)" class="filebtn" #fileButton>
+      <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!ImageURL" fill="outline">Upload</ion-button>
+      
+      <div *ngIf="!ImageURL">
+        
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+                <ion-img src='https://ucarecdn.com/{{ ImageURL }}'></ion-img>
+                <ion-card-content>
+                  <ion-textarea plceholder="Enter some description" [(ngModel)]="desc"></ion-textarea>
+                  <ion-button shape="round" color="primary" (click)="createPost()">POST</ion-button>
+                </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+</ion-content>

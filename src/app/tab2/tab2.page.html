@@ -1,14 +1,62 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-        GPS Tracking
-    </ion-title>
+  <ion-toolbar color="primary">
+      <ion-searchbar placeholder="Search for places" (search)="searchResult" [(ngModel)]="searchQuery" autocomplete="true" (ionInput)="SearchPlace()"></ion-searchbar> 
   </ion-toolbar>
 </ion-header>
 
 
+<ion-content>
+   <div #map class="map">
+  </div>
+</ion-content>
+
+  <!--<button ion-button (click)="addmap()">Maps</button>
+ <button ion-button full icon-left (click)="startTracking()" *ngIf="!isTracking">
+      <ion-icon name="locate"></ion-icon>
+      Start Tracking
+    </button>
+  <button ion-button full color="danger" icon-left (click)="stopTracking()" *ngIf="isTracking">
+      <ion-icon name="hand"></ion-icon>
+      Stop Tracking
+  </button>-->
+
+  <!--<ion-list class="list">
+    <ion-list-header>Previous Tracks</ion-list-header>
+    <ion-item *ngFor="let route of previousTracks">
+      {{ route.finished | date }}, {{ route.path.length }} Waypoints
+      <button ion-button clear item-end (click)="showHistoryRoute(route.path)">View Route</button>
+    </ion-item>
+  </ion-list>-->
+  
    
-<ion-content padding>
-    <button ion-button color="primary" (click)="startTracking()" >
+<!--AIzaSyBmygctqLgqujlomLS8FE8WwZ775QVGhmM-->
+  <!--<ion-content padding>
+    <h3>Current Latitude: {{locationTracker.lat}}</h3>
+    <h3>Current Longitude: {{locationTracker.lng}}</h3>
+    <button ion-button color="primary" (click)="start()" >
+      <ion-icon name="locate"></ion-icon>
       Start Tracking</button>
-  </ion-content>
+    <br>
+    <button ion-button color="primary" (click)="stop()" >
+      Stop Tracking</button>
+  </ion-content>-->
+
+  <!--<ion-header>
+    <ion-navbar>
+        <ion-title>
+        Nearby Me Restaurants
+        </ion-title>
+        <ion-buttons end>
+        <button ion-button (click)="showNearbyResto()"><ion-icon name="list"></ion-icon>Restaurants</button>
+        </ion-buttons>  
+    
+    </ion-navbar>
+    </ion-header>
+    
+    <ion-content padding>
+    
+    <div #map id="map"></div> 
+    
+    </ion-content>-->
+  
+  

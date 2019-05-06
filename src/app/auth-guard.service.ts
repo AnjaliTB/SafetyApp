@@ -21,7 +21,7 @@ export class AuthGuardService implements CanActivate {
   canActivate(): boolean {
     let value = this.auth.isAuthenticated()
     if (!value) {
-      this.router.navigateByUrl("/loginuser")
+      this.router.navigateByUrl("/tabs/tab3")
     }
     return value
   }

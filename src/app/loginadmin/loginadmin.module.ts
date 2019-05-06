@@ -13,8 +13,18 @@ const routes: Routes = [
     path: '',
     component: LoginadminPage,
     children: [
-      { path: 'signup', loadChildren: '../signup/signup.module#SignupPageModule' },
-      { path: 'location', loadChildren: '../location/location.module#LocationPageModule' }
+      /*{
+        path: '',
+        redirectTo:'/loginuser'
+      },*/
+      {
+        path: 'location',
+        loadChildren: '../location/location.module#LocationPageModule',
+      },
+      {
+        path: 'logout',
+        loadChildren: '../logout/logout.module#LogoutPageModule'
+      }
     ]
   }
 ];

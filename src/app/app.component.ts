@@ -11,31 +11,31 @@ import { AuthenticationService } from "./authentication.service";
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages = [
+  /*public appPages = [
     {
       title: 'Home',
-      url: '/loginuser/home',
+      url: '/signup',
       icon: 'home'
     },
     {
       title: 'Location',
-      url: '/loginuser/location',
-      icon: 'flask'
+      url: '/location',
+      icon: 'locate'
     }
-  ];
+  ];*/
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private auth : AuthenticationService,
-    private router: Router
+    private router: Router,
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.styleLightContent();
       this.splashScreen.hide();
     });
   }
@@ -43,4 +43,4 @@ export class AppComponent {
     this.auth.setLoggedIn(false);
     this.router.navigateByUrl("/");
   }
-}
+  }

@@ -1,28 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-title>
-      Signup
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Signup</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-  <ion-list>
-      <ion-item text-wrap>
-          <ion-label position="floating" class="des"> Name</ion-label>
-          <ion-input type="text"  [(ngModel)]="name" ></ion-input>
-      </ion-item>
-
-    <ion-item text-wrap>
-      <ion-label position="floating" class="des">Username</ion-label>
-      <ion-input type="text"  [(ngModel)]="username" ></ion-input>
+ 
+<ion-content padding>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input required type="text" placeholder="Name" [(ngModel)]="user.name"></ion-input>
     </ion-item>
-    <ion-item text-wrap>
-      <ion-label position="floating" class="des">Password</ion-label>
-      <ion-input type="password"  [(ngModel)]="password" ></ion-input>
+    <ion-item>
+      <ion-input required type="text" placeholder="Username" [(ngModel)]="user.username"></ion-input>
     </ion-item>
-    <br>
-    <ion-button class= "signup" (click)="signup()">Signup</ion-button>
-    <ion-button class= "login"  href="/tabs/tab3" routerDirection="forward" round outline>Login</ion-button>
+    <ion-item>
+      <ion-input required type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="number" placeholder="PhoneNumber" [(ngModel)]="user.phnumber"></ion-input>
+    </ion-item>
   </ion-list>
+  <ion-button expand="full" (click)="saveUser()">Save</ion-button>
 </ion-content>

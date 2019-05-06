@@ -8,10 +8,22 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { SMS } from '@ionic-native/sms/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+import { IonicStorageModule } from '@ionic/storage';
+
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from "angularfire2/auth";
+
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Geofence } from '@ionic-native/geofence/ngx';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +31,13 @@ import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-na
   ],
   entryComponents: [
   ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule,
+     IonicModule.forRoot(),
+    AppRoutingModule,
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -27,6 +45,8 @@ import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-na
     CallNumber,
     Geolocation,
     LaunchNavigator,
+    HttpClient,
+    Geofence,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
   bootstrap: [AppComponent]

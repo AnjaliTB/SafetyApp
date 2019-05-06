@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Home
     </ion-title>
@@ -7,10 +7,10 @@
 </ion-header>
 <ion-content padding="true">
   <ion-list>
-      <ion-button expand="block"  (click)="sendSMS()"  round outline>Panic Alert</ion-button>
+      <ion-button expand="block"  color="danger" (click)="sendSMS()"  round outline>Panic Alert</ion-button>
       <br>
-      <ion-button expand="block"  (click)="callnumber()"  round outline>Panic Call</ion-button>
+      <ion-button expand="block"  color="danger" (click)="callnumber()"  round outline>Panic Call</ion-button>
       <br>
-    <ion-button expand="block" color="secondary" href="/tabs/tab2"  routerDirection="forward">Track</ion-button>
+    <ion-button expand="block" color="danger"(click)="navigatemap()" round outline>Navigate</ion-button>
   </ion-list>
 </ion-content>
