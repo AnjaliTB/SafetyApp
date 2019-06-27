@@ -1,9 +1,71 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)='goback()'></ion-back-button>
+    </ion-buttons>
     <ion-title>Rate Location</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <p>Please select location</p>
-</ion-content>
+  <ion-list>
 
+    <ion-item text-wrap>
+        <ion-label position="floating" class="feature">Enter location</ion-label>
+        <ion-input type="text"  value =""[(ngModel)]="place.name"  ng-value=" "></ion-input>
+    </ion-item>
+    <!--<ion-item text-wrap>
+        <ion-label position="floating" class="feature">Enter latitude</ion-label>
+        <ion-input type="text"  value =""[(ngModel)]="place.latitude"  ng-value=" "></ion-input>
+    </ion-item>
+    <ion-item text-wrap>
+        <ion-label position="floating" class="feature">Enter longitude</ion-label>
+        <ion-input type="text"  value =""[(ngModel)]="place.longitude"  ng-value=" "></ion-input>
+    </ion-item>-->
+    <ion-item text-wrap>
+      <ion-label position="floating" class="feature" ng-value=" ">Public Transport</ion-label>
+      <ion-label position="floating" class="des" ng-value=" ">(Is public transport nearby?)</ion-label>
+      <ion-select   value="1" [(ngModel)]="publictransport" >
+          <ion-select-option value="0">Yes</ion-select-option>
+          <ion-select-option value="1">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label  position="floating" class="feature" ng-value=" ">Crowd</ion-label>
+      <ion-label position="floating" class="des" ng-value=" ">(Is the area densely crowded?)</ion-label>
+      <ion-select   value="1"[(ngModel)]="crowd" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="0">Yes</ion-select-option>
+          <ion-select-option value="1">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label position="floating" class="feature">Lighting</ion-label>
+      <ion-label position="floating" class="des" ng-value=" ">(Does the place have enough light?)</ion-label>
+      <ion-select  value="1"[(ngModel)]="lighting" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="0">Yes</ion-select-option>
+          <ion-select-option value="1">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label position="floating" class="feature" ng-value=" ">Security</ion-label>
+      <ion-label position="floating" class="des" ng-value=" ">(Are police or private security nearby?)</ion-label>
+      <ion-select  value="1"[(ngModel)]="security" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="0">Yes</ion-select-option>
+          <ion-select-option value="1">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label position="floating" class="feature" ng-value=5>Feeling</ion-label>
+      <ion-label position="floating" class="des" ng-value=" ">How safe do you feel?</ion-label>
+      <ion-select  value="1"[(ngModel)]="feeling" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="0">0</ion-select-option>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        
+      </ion-select>
+    </ion-item>
+    <ion-button expand="full" class= "but" (click)="rateLocation()">Submit Feedback</ion-button>
+    </ion-list>
+</ion-content>

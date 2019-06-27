@@ -24,12 +24,17 @@ import { map } from 'rxjs/operators';
 export class Tab3Page  {
   
   users: User[];
-  user : any;
+  user: User;
+  //user: any;
   length : number;
   status: boolean;
-
+  person: number;
   username: string ="";
   password: string ="";
+  userId: string = "";
+
+  uname: string ="";
+  pwd: string ="";
 
 
 
@@ -41,61 +46,54 @@ export class Tab3Page  {
     private loadingController: LoadingController,
     private afs: AngularFirestore){
       this.status= this.auth.isAuthenticated();
-      console.log(this.status)
+      //console.log(this.status)
     
   }
  
   ngOnInit() {
       this.firebaseService.getUsers().subscribe(res => {
       this.users = res;
-      for (let i of this.users) {
-        console.log(i); // "4", "5", "6"
-      }
+      
       });
   }
   
 
   loging(){
-    for (let i of this.users) {
-        console.log(i); // "4", "5", "6
-        console.log("Username"+this.username);
-        console.log("Password"+this.password);
-        if(this.username==i.username && this.password==i.password){
-          console.log("User Logged in");
-          //alert("Welcome "+i.name+" !");
+    this.firebaseService.getUsers().subscribe(res => {
+      this.users = res;
+      
+      });
+       for (let user of this.users) {
+        if (this.username=='admin' && this.password=='admin'){
+          //console.log("Admin Logged in");
+          this.userId='admin';
+          this.person=1;
           this.auth.setLoggedIn(true)
-          this.router.navigateByUrl('/loginuser');
-        }else if (this.username=='admin' && this.password=='admin'){
-          console.log("User Logged in");
-          //alert("Welcome Admin !");
+          this.router.navigateByUrl('/loginadmin/'+this.userId);
+        }else if(this.username==user.username && this.password==user.password){
+          this.person=2;
+          this.userId = user.id;
+          console.log(this.userId)
+          this.firebaseService.setLoggedIn(this.userId).then(() => {
+            //console.log("User Logged in");
+          });
+         
           this.auth.setLoggedIn(true)
-          this.router.navigateByUrl('/loginadmin');
+          this.router.navigateByUrl('/loginuser/'+this.userId);
         }
-        else
-          console.log("Login unsuccessful");
+        else{
+          //console.log("Login unsuccessful");
           //alert("Login Unsucessful !!!");
+          this.person=0;
+        }
       }
 
-    /*this.user = this.afs.collection('users', (ref) => ref.where('username', '==', this.username).limit(1)).valueChanges();
-    this.user.subscribe((user) => {
-      console.log(user);
-      console.log("User Logged in");
-      this.auth.setLoggedIn(true)
-      this.router.navigateByUrl('/loginuser');
-     },
-     (err) => console.log('Login failed'));*/
+      if(this.person==0 && this.userId==''){
+        alert("Incorrect username or password !!!");
+      }
 
-     /*this.user = this.afs.collection('users', 
-  (ref) => {
-    return ref.where('username', '==', this.username).limit(1)
-  })
-  .snapshotChanges()
-  .map((users) => {
-    return users.length
-  });*/
-  /*}catch(err){
-    console.dir(err)
-  }*/
+      this.username="";
+      this.password="";
 }
 
 }

@@ -11,11 +11,12 @@ const routes: Routes = [
   {
     path: '',
     component: LoginuserPage,
-   children: [
-      /*{
+    /*children: [
+      {
         path: '',
-        redirectTo:'/loginuser'
-      },*/
+        redirectTo:'/loginuser',
+        pathMatch: 'full'
+      },
       {
         path: 'location',
         loadChildren: '../location/location.module#LocationPageModule',
@@ -24,7 +25,7 @@ const routes: Routes = [
         path: 'logout',
         loadChildren: '../logout/logout.module#LogoutPageModule'
       }
-    ]
+    ]*/
   }
 ];
 

@@ -24,6 +24,10 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Geofence } from '@ionic-native/geofence/ngx';
 
+import { Sim } from "@ionic-native/sim/ngx";
+
+
+
 
 @NgModule({
   declarations: [
@@ -47,6 +51,7 @@ import { Geofence } from '@ionic-native/geofence/ngx';
     LaunchNavigator,
     HttpClient,
     Geofence,
+    Sim,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
   bootstrap: [AppComponent]

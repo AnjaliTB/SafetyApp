@@ -9,7 +9,7 @@ export interface User {
   username: string;
   password:string;
   phnumber: number;
-  createdAt: number;
+  status:boolean;
 }
 
 @Injectable({
@@ -53,5 +53,20 @@ export class FirebaseService {
  
   removeUser(id) {
     return this.usersCollection.doc(id).delete();
+  }
+
+  getUserofUsername(username) {
+    return this.usersCollection.doc<User>(username).valueChanges();
+  }
+
+  getUserofPassword(password) {
+    return this.usersCollection.doc<User>(password).valueChanges();
+  }
+
+  setLoggedIn(id: string) {
+    return this.usersCollection.doc(id).update({status: true});
+  }
+  setLoggedOut(id: string) {
+    return this.usersCollection.doc(id).update({status: false});
   }
 }

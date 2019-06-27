@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)='goback()'></ion-back-button>
+    </ion-buttons>
+    <ion-title>Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container  class="list" *ngIf="!places">
+    <ion-label>No Places</ion-label>
+  </ng-container>
+  <ng-container *ngIf="places">
+  <ion-list *ngFor="let item of places ">
+    <ion-label>{{item.name}}</ion-label>
+    <br>
+    <ion-label>Latitude:{{item.latitude}}</ion-label>
+    <br>
+    <ion-label>Longitude:{{item.longitude}}</ion-label>
+    <br>
+    <ion-label slot="end">Score:{{item.score}}</ion-label>
+    <br>
+    <ion-button (click)='approve()'>Approve</ion-button> 
+    <ion-button (click)='reject()'>Reject</ion-button>
+  </ion-list>
+</ng-container>
+</ion-content>

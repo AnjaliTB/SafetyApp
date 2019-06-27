@@ -11,11 +11,12 @@ import { NavController, LoadingController } from '@ionic/angular';
 export class SignupPage implements OnInit {
   
   user: User = {
-    name: 'XXXX',
-    username: 'ABCD',
+    name: 'Name',
+    username: 'Username',
     password: 'xxxx',
     phnumber: 1234567890,
-    createdAt: new Date().getTime(),
+    status: false,
+    
     
   };
  
@@ -65,19 +66,4 @@ export class SignupPage implements OnInit {
       });
     }
   }
-
-  /*users: User[];
- 
-  constructor(private firebaseService: FirebaseService) { }
- 
-  ngOnInit() {
-    this.firebaseService.getUsers().subscribe(res => {
-      this.users = res;
-    });
-  }
- 
-  remove(item) {
-    this.firebaseService.removeUser(item.id);
-  }*/
-
 }

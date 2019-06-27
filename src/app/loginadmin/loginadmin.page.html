@@ -1,55 +1,35 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+  <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out" slot="start"></ion-icon>
+      </ion-button>
     </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
-  <ion-label>Welcome Admin</ion-label>
+  <h4>Location Feedback</h4>
+    <!--<ion-icon slot="start" color="medium" name="map"></ion-icon>
+    <ion-button  color="light" expand="full" (click)="goToFeedback()"   class = "button button-assertive ">View Feedback</ion-button>
+    <br>
+    <ion-button  color="light" expand="full" (click)="goToLocation()"   class = "button button-assertive ">Feedback Location</ion-button>-->
+    <ng-container  class="list" *ngIf="!places">
+      <ion-label>No Places</ion-label>
+    </ng-container>
+    <ng-container *ngIf="places">
+    <ion-list *ngFor="let item of places ">
+      <ion-label>{{item.name}}</ion-label>
+      <br>
+      <ion-label>Latitude:{{item.latitude}}</ion-label>
+      <br>
+      <ion-label>Longitude:{{item.longitude}}</ion-label>
+      <br>
+      <ion-label slot="end">Score:{{item.score}}</ion-label>
+      <br>
+      <ion-button (click)='approve()'>Approve</ion-button> 
+      <ion-button (click)='reject(item.id)'>Reject</ion-button>
+    </ion-list>
+  </ng-container>
 </ion-content>
-<ion-split-pane>
-  <ion-menu contentId="content">
- 
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
- 
-    <ion-content>
-      <ion-list>
-          <ion-item tappable routerLink="/loginuser" routerDirection="root">
-            <ion-icon name="home" slot="start"></ion-icon>
-            Home
-          </ion-item>
-        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-          <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)">
-            <ion-label>
-              {{ p.title }}
-            </ion-label>
-            <ion-icon name='{{p.icon}}' slot="start"></ion-icon>
-          </ion-item>
-        </ion-menu-toggle>
- 
-        <ion-item tappable routerLink="/tabs/tab3" routerDirection="root">
-          <ion-icon name="log-out" slot="start"></ion-icon>
-          Logout
-        </ion-item>
- 
-      </ion-list>
- 
-    </ion-content>
- 
-  </ion-menu>
- 
-  <ion-router-outlet id="content" main></ion-router-outlet>
- 
-</ion-split-pane>
-    
-  
   
